@@ -1,0 +1,53 @@
+body {
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 100;
+	font-size: 16px;
+	@include lh(16, 22);
+	background: #070B13;
+	color: #fff;
+	letter-spacing: -0.02em;
+
+	&._no-scroll {
+		overflow: hidden;
+	}
+}
+
+.page {
+	overflow: hidden;
+}
+
+img {
+	max-width: 100%;
+}
+
+* {
+	-webkit-box-decoration-break: clone;
+	isolation: isolate;
+}
+
+@media (min-width: 992px) {
+	._v-mob {
+		display: none;
+	}
+}
+
+@media (max-width: 992px) {
+	._v-desc {
+		display: none;
+	}
+}
+
+.inner {
+	max-width: 1440px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 40px;
+	padding-right: 40px;
+
+	@media(max-width:1024px) {
+		padding-left: 15px;
+		padding-right: 15px;
+		;
+	}
+}
