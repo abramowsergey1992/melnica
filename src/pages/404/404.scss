@@ -1,0 +1,80 @@
+.p404 {
+	min-height: calc(var(--vh, 1vh)*100);
+	position: relative;
+	background-image: url('../img/pattern.svg');
+	background-position: center;
+	padding: 100px 0 150px;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	justify-content: flex-end;
+
+	@media(max-width:1250px) {
+		justify-content: center;
+	}
+
+	p {
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 33px;
+
+		@media(max-width:700px) {
+			br {
+				display: none;
+			}
+
+			max-width: 310px;
+		}
+
+		@media(max-width:992px) {
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 24px;
+		}
+
+		a {
+			color: $gold
+		}
+
+		letter-spacing: -0.03em;
+	}
+
+	h1,
+	.h1 {
+		font-family: 'Manrope';
+		font-style: normal;
+		font-weight: 800;
+		font-size: 82px;
+		@include lh(82, 112);
+		text-align: left;
+
+		@media(max-width:992px) {
+			font-size: 40px;
+			line-height: 55px;
+		}
+
+		/* identical to box height */
+
+		letter-spacing: -0.04em;
+		text-transform: uppercase;
+
+		color: #FFFFFF;
+	}
+
+	.inner {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	&__bg {
+		position: absolute;
+		height: 100%;
+		right: 0;
+		top: 0;
+
+		@media(max-width:700px) {
+			right: initial;
+			left: 217px;
+		}
+	}
+}
