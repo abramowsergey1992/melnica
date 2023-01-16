@@ -2,6 +2,8 @@ $(function () {
 	var hashTagActive = "";
 	$(".scroll-to").on("click touchstart", function (event) {
 		if ($(this).attr("href").length) {
+			$("body").removeClass("_no-scroll");
+			$(".mobmenu").fadeOut(100);
 			//this will prevent if the user click several times the same link to freeze the scroll.
 			event.preventDefault();
 			//calculate destination place
@@ -41,11 +43,17 @@ $(function () {
 			marginTop:
 				$(".steps__h-line-2").height() +
 				$(".steps__h-line-2").position().top,
+
 			height:
 				$(".steps__h-line-3").position().top -
 				$(".steps__h-line-2").position().top -
-				5,
+				$(".steps__h-line-2").height(),
 		});
+		console.log(
+			$(".steps__h-line-3").position().top,
+			$(".steps__h-line-2").position().top,
+			$(".steps__h-line-2").height()
+		);
 	}
 	hh();
 	setTimeout(hh(), 1000);

@@ -68,6 +68,19 @@
 		}
 	}
 
+	&__close {
+		cursor: pointer;
+
+		&:hover {
+			svg {
+				path {
+					stroke: $gold !important
+				}
+			}
+		}
+
+	}
+
 	&__menu {
 		position: absolute;
 		left: 50%;
