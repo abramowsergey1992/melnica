@@ -495,7 +495,11 @@
 	min-height: 459px;
 	margin-bottom: 138px;
 	background: linear-gradient(83.85deg, #EFBD64 1.33%, #D9D9D9 100%);
+
 	// .partners__logo
+	@media(max-width:992px) {
+		margin-bottom: 80px;
+	}
 
 	&__logo {
 		margin-bottom: 24px;
@@ -741,6 +745,16 @@
 		line-height: 44px;
 		@include lh(32, 44);
 		letter-spacing: -0.03em;
+
+		@media (max-width:992px) {
+			font-size: 24px;
+			line-height: 33px;
+			/* identical to box height */
+			font-weight: 700;
+			letter-spacing: -0.03em;
+
+			color: #EFBD64;
+		}
 	}
 
 	dl {
@@ -919,7 +933,11 @@
 		max-width: 40%;
 
 		.step__title {
-			color: $gold;
+			@media(min-width:992px) {
+
+
+				color: $gold;
+			}
 		}
 	}
 
@@ -1443,6 +1461,10 @@
 		.swiper-slide {
 			background: #20232B;
 			padding: 30px;
+
+			@media(max-width:992px) {
+				min-height: 220px
+			}
 
 			h3,
 			.h3 {
