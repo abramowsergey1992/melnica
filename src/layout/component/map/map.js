@@ -137,7 +137,7 @@ function init() {
 
 	let Geo = [];
 	$.ajax({
-		url: "/json/data.geojson",
+		url: "json/data.geojson",
 		dataType: "json",
 		success: function (json) {
 			function createObj(select = false) {
