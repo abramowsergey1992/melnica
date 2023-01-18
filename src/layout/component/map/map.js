@@ -247,7 +247,7 @@ function init() {
 									fillOpacity: opacity,
 									strokeColor: obj.properties.stroke,
 									// Ширина линии.
-									strokeWidth: 5,
+									strokeWidth: 3,
 								}
 							);
 

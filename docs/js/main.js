@@ -1,3 +1,4 @@
+$(function(){})
 $(function () {
 	var hashTagActive = "";
 	$(".scroll-to").on("click touchstart", function (event) {
@@ -402,11 +403,11 @@ $(function () {
 	}
 });
 
-$(function(){})
 $(function () {
 	AOS.init({ once: false });
 });
 
+$(function(){})
 $(function(){})
 let geor = "";
 
@@ -657,7 +658,7 @@ function init() {
 									fillOpacity: opacity,
 									strokeColor: obj.properties.stroke,
 									// Ширина линии.
-									strokeWidth: 5,
+									strokeWidth: 3,
 								}
 							);
 
@@ -671,7 +672,6 @@ function init() {
 	});
 }
 
-$(function(){})
 $(function () {
 	$(".header__burger").click(function () {
 		$("body").addClass("_no-scroll");
