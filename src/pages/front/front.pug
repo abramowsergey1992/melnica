@@ -57,17 +57,22 @@ block content
 				</svg>
 	
 	.inner 
+		
 		.start#start(data-aos="fade-up",data-aos-duration="1000")
 			span._divider
 			span Начните бизнес с чистой прибылью 
 			span._white 200&nbsp;000&nbsp;-&nbsp;1&nbsp;000&nbsp;000&nbsp;₽
+			span._m-divider
 			span Старт бизнеса
 			span._white 3 месяца
 			span._divider
+			span._m-divider
 			span Окупаемость
 			span._white  6-18&nbsp;месяцев
+			span._m-divider
 			span Паушальный взнос
 			span._white  100&nbsp;000&nbsp;-&nbsp;300&nbsp;000&nbsp;₽
+			span._m-divider
 			span  Роялти
 			span._white 3-5%
 			span._divider
@@ -414,9 +419,10 @@ block content
 									.steps-form__content 
 										h3  Выбор района города 
 										p Экспертиза помещения – бесплатно!
-									
+										#yamap(style="height:237px")
+										input.st-inpt-3(type="hidden",name="area")
 									.steps-form__footer 
-										button(type='button'  ).steps-form__btn-3 Далее
+										button(type='button' disabled ).steps-form__btn-3 Далее
 											<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M19.8409 8.99999L12.5 1.65906M19.8409 8.99999L12.5 16.3409M19.8409 8.99999H0" stroke-width="2"/>
 											</svg>
