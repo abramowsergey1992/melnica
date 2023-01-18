@@ -1,3 +1,5 @@
+let geor = "";
+
 ymaps.ready(init);
 
 function init() {
@@ -135,68 +137,126 @@ function init() {
 		clusterize: false,
 	});
 
+	// regionName = "Москва, Коммунарка";
+	// var url = "http://nominatim.openstreetmap.org/search";
+	// $.getJSON(url, { q: regionName, format: "json", polygon_geojson: 1 }).then(
+	// 	function (data) {
+	// 		console.log(data);
+	// 		let i = 0;
+	// 		$.each(data, function (ix, place) {
+	// 			if (i == 0 && "relation" == place.osm_type) {
+	// 				console.log("place", place);
+	// 				i = 1;
+	// 				$("#steps").html(JSON.stringify(place.geojson));
+	// 			}
+	// 		});
+	// 	},
+	// 	function (err) {
+	// 		console.log(err);
+	// 	}
+	// );
 	let Geo = [];
 	$.ajax({
-		url: "json/data.geojson",
+		url: "json/regions.json",
 		dataType: "json",
-		success: function (json) {
-			function createObj(select = false) {
-				json.features.forEach((obj) => {
-					// objectManager.add(
-					let opacity = 0.2;
-					if (select !== false) {
-						if (obj.id == select) {
-							opacity = 0.5;
-						}
-					}
-					myGeoObject = new ymaps.GeoObject(
-						{
-							type: "Polygon",
-							id: obj.id,
-							geometry: {
-								id: obj.id,
-								// Тип геометрии - прямоугольник.
-								type: "Polygon",
-								// Координаты.
-								coordinates: obj.geometry.coordinates,
-							},
-							// Свойства.
-							properties: {
-								id: obj.id,
-								balloonContent: obj.properties.description,
-							},
-						},
-						{
-							fillColor: obj.properties.stroke,
-							fillOpacity: opacity,
-							strokeColor: obj.properties.stroke,
-							// Ширина линии.
-							strokeWidth: 5,
-						}
-					);
-					// Geo.push(myGeoObject);
-					myGeoObject.events.add(["click"], function (e) {
-						var object = e.get("target").properties.get("id");
-						myMap.geoObjects.removeAll();
-						createObj(object);
-						json.features.forEach((obj) => {
-							console.log(obj.id, object);
-							if (obj.id == object) {
-								console.log("sss");
-								$(".steps-form__btn-3").removeAttr("disabled");
-								$(".st-inpt-3").val(obj.properties.description);
+		success: function (regions) {
+			$.ajax({
+				url: "json/data.geojson",
+				dataType: "json",
+				success: function (json) {
+					function createObj(select = false) {
+						console.log("sxxxxxx");
+						regions.forEach((region) => {
+							let opacity = 0.2;
+							if (select !== false) {
+								if (region.id == select) {
+									opacity = 0.5;
+								}
 							}
+							console.log("zyyy", opacity);
+							myGeoObject = new ymaps.GeoObject(
+								{
+									type: region.type,
+									id: region.id,
+									geometry: {
+										id: region.id,
+										type: region.type,
+										coordinates: region.coordinates,
+									},
+									// Свойства.
+									properties: {
+										id: region.id,
+									},
+								},
+								{
+									fillColor: "#008000",
+									fillOpacity: opacity,
+									strokeColor: "#008000",
+									// Ширина линии.
+									strokeWidth: 3,
+								}
+							);
+							myMap.geoObjects.add(myGeoObject);
+							// Geo.push(myGeoObject);
+							myGeoObject.events.add(["click"], function (e) {
+								var object = e
+									.get("target")
+									.properties.get("id");
+								console.log("object", object);
+								myMap.geoObjects.removeAll();
+								createObj(object);
+								regions.forEach((region) => {
+									if (region.id == object) {
+										$(".steps-form__btn-3").removeAttr(
+											"disabled"
+										);
+										$(".st-inpt-3").val(region.title);
+									}
+								});
+
+								// myMap.geoObjects.each((g) => {
+								// 	console.log("g", g, g.id);
+								// });
+							});
 						});
+						console.log("yuyy");
+						json.features.forEach((obj) => {
+							// objectManager.add(
+							let opacity = 0.2;
 
-						// myMap.geoObjects.each((g) => {
-						// 	console.log("g", g, g.id);
-						// });
-					});
+							myGeoObject = new ymaps.GeoObject(
+								{
+									type: "Polygon",
+									id: obj.id,
+									geometry: {
+										id: obj.id,
+										// Тип геометрии - прямоугольник.
+										type: "Polygon",
+										// Координаты.
+										coordinates: obj.geometry.coordinates,
+									},
+									// Свойства.
+									properties: {
+										id: obj.id,
+										balloonContent:
+											obj.properties.description,
+									},
+								},
+								{
+									fillColor: obj.properties.stroke,
+									fillOpacity: opacity,
+									strokeColor: obj.properties.stroke,
+									// Ширина линии.
+									strokeWidth: 5,
+								}
+							);
 
-					myMap.geoObjects.add(myGeoObject);
-				});
-			}
-			createObj();
+							myMap.geoObjects.add(myGeoObject);
+						});
+					}
+					createObj();
+				},
+			});
 		},
 	});
 }
