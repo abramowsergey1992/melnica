@@ -548,7 +548,7 @@ function init() {
 		clusterize: false,
 	});
 
-	// regionName = "Москва, Коммунарка";
+	// regionName = "Ленинский район, москва";
 	// var url = "http://nominatim.openstreetmap.org/search";
 	// $.getJSON(url, { q: regionName, format: "json", polygon_geojson: 1 }).then(
 	// 	function (data) {
