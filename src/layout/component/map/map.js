@@ -165,7 +165,6 @@ function init() {
 				dataType: "json",
 				success: function (json) {
 					function createObj(select = false) {
-						console.log("sxxxxxx");
 						regions.forEach((region) => {
 							let opacity = 0.2;
 							if (select !== false) {
@@ -173,7 +172,6 @@ function init() {
 									opacity = 0.5;
 								}
 							}
-							console.log("zyyy", opacity);
 							myGeoObject = new ymaps.GeoObject(
 								{
 									type: region.type,
@@ -185,6 +183,7 @@ function init() {
 									},
 									// Свойства.
 									properties: {
+										balloonContent: region.title,
 										id: region.id,
 									},
 								},
@@ -198,11 +197,15 @@ function init() {
 							);
 							myMap.geoObjects.add(myGeoObject);
 							// Geo.push(myGeoObject);
+							if (select !== false) {
+								if (region.id == select) {
+									myGeoObject.balloon.open();
+								}
+							}
 							myGeoObject.events.add(["click"], function (e) {
 								var object = e
 									.get("target")
 									.properties.get("id");
-								console.log("object", object);
 								myMap.geoObjects.removeAll();
 								createObj(object);
 								regions.forEach((region) => {
@@ -219,7 +222,6 @@ function init() {
 								// });
 							});
 						});
-						console.log("yuyy");
 						json.features.forEach((obj) => {
 							// objectManager.add(
 							let opacity = 0.2;
