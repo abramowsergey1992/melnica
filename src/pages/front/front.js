@@ -227,6 +227,11 @@ $(function () {
 		slidesPerView: 1,
 		spaceBetween: 22,
 		allowTouchMove: 0,
+		on: {
+			slideChange: function (swiper) {
+				$(".steps-form").attr("slide", swiper.activeIndex);
+			},
+		},
 	});
 	const stepsPhotos = new Swiper(".steps-form__photos", {
 		slidesPerView: 1,

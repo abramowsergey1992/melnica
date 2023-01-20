@@ -3,6 +3,12 @@ let geor = "";
 ymaps.ready(init);
 
 function init() {
+	const mediaQuery = window.matchMedia("(max-width: 992px)");
+	if (mediaQuery.matches) {
+		document.getElementById("yamap-mob").id = "yamap";
+	} else {
+		document.getElementById("yamap-desc").id = "yamap";
+	}
 	var myMap = new ymaps.Map("yamap", {
 		center: [37.61870031738251, 55.75493422787544],
 

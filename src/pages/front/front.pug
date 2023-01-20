@@ -426,8 +426,14 @@ block content
 									.steps-form__content 
 										h3  Выбор района города 
 										p Экспертиза помещения – бесплатно!
-										#yamap(style="height:237px")
+										.legend 
+											.legend__marker(style="background: #018001;")
+											span Свободные зоны для выбора
+										#yamap-mob
+										blockquote 
+											span Если выбранная вами «Зелёная зона» пересекается с уже занятой (цветной областью), то наличие свободных точек уточнит менеджер, после формирования&nbsp;заявки!
 										input.st-inpt-3(type="hidden",name="area")
+										
 									.steps-form__footer 
 										button(type='button' disabled ).steps-form__btn-3 Далее
 											<svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -522,6 +528,7 @@ block content
 										color  Увы, при отправке возникла ошибка, пожалуйста, обновите форму или перезагрузите страницу.
 								
 				.steps-form__right 
+					#yamap-desc
 					.steps-form__photos.swiper 
 						.swiper-wrapper 
 							.swiper-slide 

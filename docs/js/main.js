@@ -228,6 +228,11 @@ $(function () {
 		slidesPerView: 1,
 		spaceBetween: 22,
 		allowTouchMove: 0,
+		on: {
+			slideChange: function (swiper) {
+				$(".steps-form").attr("slide", swiper.activeIndex);
+			},
+		},
 	});
 	const stepsPhotos = new Swiper(".steps-form__photos", {
 		slidesPerView: 1,
@@ -403,29 +408,23 @@ $(function () {
 	}
 });
 
-$(function(){})
-$(function(){})
 $(function () {
 	AOS.init({ once: false });
 });
 
-$(function () {
-	$(".header__burger").click(function () {
-		$("body").addClass("_no-scroll");
-		$(".mobmenu").fadeIn();
-	});
-	$(".header__close").click(function () {
-		$(".mobmenu").fadeOut(function () {
-			$("body").removeClass("_no-scroll");
-		});
-	});
-});
-
+$(function(){})
+$(function(){})
 let geor = "";
 
 ymaps.ready(init);
 
 function init() {
+	const mediaQuery = window.matchMedia("(max-width: 992px)");
+	if (mediaQuery.matches) {
+		document.getElementById("yamap-mob").id = "yamap";
+	} else {
+		document.getElementById("yamap-desc").id = "yamap";
+	}
 	var myMap = new ymaps.Map("yamap", {
 		center: [37.61870031738251, 55.75493422787544],
 
@@ -685,3 +684,15 @@ function init() {
 		},
 	});
 }
+
+$(function () {
+	$(".header__burger").click(function () {
+		$("body").addClass("_no-scroll");
+		$(".mobmenu").fadeIn();
+	});
+	$(".header__close").click(function () {
+		$(".mobmenu").fadeOut(function () {
+			$("body").removeClass("_no-scroll");
+		});
+	});
+});

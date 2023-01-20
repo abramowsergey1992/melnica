@@ -445,7 +445,11 @@
                         <div class="steps-form__content"> 
                           <h3> Выбор района города </h3>
                           <p>Экспертиза помещения – бесплатно!</p>
-                          <div id="yamap" style="height:237px"></div>
+                          <div class="legend"> 
+                            <div class="legend__marker" style="background: #018001;"></div><span>Свободные зоны для выбора</span>
+                          </div>
+                          <div id="yamap-mob"></div>
+                          <blockquote> <span>Если выбранная вами «Зелёная зона» пересекается с уже занятой (цветной областью), то наличие свободных точек уточнит менеджер, после формирования&nbsp;заявки!</span></blockquote>
                           <input class="st-inpt-3" type="hidden" name="area">
                         </div>
                         <div class="steps-form__footer"> 
@@ -562,6 +566,7 @@
                 </form>
               </div>
               <div class="steps-form__right"> 
+                <div id="yamap-desc"></div>
                 <div class="steps-form__photos swiper"> 
                   <div class="swiper-wrapper"> 
                     <div class="swiper-slide"> 
