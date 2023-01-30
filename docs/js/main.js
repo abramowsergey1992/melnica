@@ -1,4 +1,3 @@
-$(function(){})
 $(function () {
 	var hashTagActive = "";
 	$(".scroll-to").on("click touchstart", function (event) {
@@ -270,6 +269,9 @@ $(function () {
 			$(".steps-form__btn-2").attr("disabled", "disabled");
 		}
 	});
+	$(".steps-form__back").click(function () {
+		stepsForm.slidePrev();
+	});
 	$(".steps-form__btn-2").click(function () {
 		if ($(this).hasAttr("disabled")) {
 		} else {
@@ -408,6 +410,7 @@ $(function () {
 	}
 });
 
+$(function(){})
 $(function () {
 	AOS.init({ once: false });
 });

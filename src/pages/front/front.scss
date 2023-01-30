@@ -1345,6 +1345,15 @@ blockquote {
 	}
 
 	// .steps-form__footer
+	&__back {
+
+		margin-right: auto;
+		margin-left: 0 !important;
+
+		svg {
+			transform: scale(-1);
+		}
+	}
 
 	&__footer {
 		display: flex;

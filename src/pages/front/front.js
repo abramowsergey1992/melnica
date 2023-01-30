@@ -269,6 +269,9 @@ $(function () {
 			$(".steps-form__btn-2").attr("disabled", "disabled");
 		}
 	});
+	$(".steps-form__back").click(function () {
+		stepsForm.slidePrev();
+	});
 	$(".steps-form__btn-2").click(function () {
 		if ($(this).hasAttr("disabled")) {
 		} else {
