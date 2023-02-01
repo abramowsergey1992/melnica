@@ -1427,6 +1427,12 @@ blockquote {
 	// .steps-form__photos
 
 	&__photos {
+		@media(min-width:992px) {
+			[slide="2"] & {
+				opacity: 0;
+			}
+		}
+
 		@media(max-width:992px) {
 			max-width: 400px;
 			margin-left: auto;

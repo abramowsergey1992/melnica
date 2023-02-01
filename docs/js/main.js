@@ -1,3 +1,4 @@
+$(function(){})
 $(function () {
 	var hashTagActive = "";
 	$(".scroll-to").on("click touchstart", function (event) {
@@ -410,12 +411,10 @@ $(function () {
 	}
 });
 
-$(function(){})
 $(function () {
 	AOS.init({ once: false });
 });
 
-$(function(){})
 $(function(){})
 let geor = "";
 
@@ -650,7 +649,13 @@ function init() {
 						json.features.forEach((obj) => {
 							// objectManager.add(
 							let opacity = 0.2;
+							let coord = [];
 
+							if (obj.geometry.type == "LineString") {
+								coord.push(obj.geometry.coordinates);
+							} else {
+								coord = obj.geometry.coordinates;
+							}
 							myGeoObject = new ymaps.GeoObject(
 								{
 									type: "Polygon",
@@ -660,7 +665,7 @@ function init() {
 										// Тип геометрии - прямоугольник.
 										type: "Polygon",
 										// Координаты.
-										coordinates: obj.geometry.coordinates,
+										coordinates: coord,
 									},
 									// Свойства.
 									properties: {
@@ -699,3 +704,5 @@ $(function () {
 		});
 	});
 });
+
+$(function(){})
